@@ -86,15 +86,6 @@ cd e2e && npm install && npx playwright test
 └── docs/                    # 项目文档
 ```
 
-## API 接口一览
+## API 接口
 
-| 方法 | 路径 | 说明 | 认证 |
-|------|------|------|------|
-| GET | /api/travels | 旅行列表（支持筛选+分页） | 否 |
-| GET | /api/travels/{id} | 旅行详情 | 否 |
-| POST | /api/admin/travels | 新增旅行 | 是 |
-| PUT | /api/admin/travels/{id} | 编辑旅行 | 是 |
-| DELETE | /api/admin/travels/{id} | 删除旅行 | 是 |
-| POST | /api/admin/login | 管理员登录 | 否 |
-| POST | /api/admin/logout | 退出登录 | 否 |
-| GET | /api/admin/check | 检查登录状态 | 否 |
+完整 API 文档见 [docs/API文档.md](docs/API文档.md)（8 个端点，含请求/响应示例、错误码、枚举字典）。
