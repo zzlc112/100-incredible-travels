@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.mapper.TravelMapper">
+
+    <select id="selectPageWithFilter" resultType="com.travel.entity.Travel">
+        SELECT * FROM travel
+        <where>
+            <if test="experienceType != null and experienceType != ''">
+                AND (
+                <foreach collection="experienceType.split(',')" item="type" separator=" OR ">
+                    experience_types LIKE '%' || #{type} || '%'
+                </foreach>
+                )
+            </if>
+            <if test="visualStyle != null and visualStyle != ''">
+                AND visual_style = #{visualStyle}
+            </if>
+            <if test="rarityLevel != null">
+                AND rarity_level &gt;= #{rarityLevel}
+            </if>
+        </where>
+        ORDER BY created_at DESC
+    </select>
+
+</mapper>
