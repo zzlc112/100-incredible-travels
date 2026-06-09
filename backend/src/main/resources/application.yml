@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:sqlite:travel.db
+    driver-class-name: org.sqlite.JDBC
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+admin:
+  username: admin
+  password: admin123
