@@ -64,27 +64,57 @@ cd e2e && npm install && npx playwright test
 
 ```
 100-incredible-travels/
-├── backend/                 # Spring Boot 后端
+├── backend/                        # Spring Boot 后端
 │   ├── src/main/java/com/travel/
-│   │   ├── entity/          # 数据实体
-│   │   ├── dto/             # 数据传输对象
-│   │   ├── mapper/          # MyBatis-Plus Mapper
-│   │   ├── service/         # 业务逻辑层
-│   │   ├── controller/      # REST 控制器
-│   │   ├── auth/            # 认证模块
-│   │   ├── config/          # 配置类
-│   │   └── exception/       # 异常类
-│   └── src/test/            # 后端测试
-├── frontend/                # Vue 3 前端
-│   └── src/
-│       ├── api/             # HTTP API 封装
-│       ├── router/          # 路由配置
-│       ├── components/      # 公共组件
-│       ├── views/           # 页面视图
-│       └── styles/          # 全局样式
-├── e2e/                     # Playwright E2E 测试
-└── docs/                    # 项目文档
+│   │   ├── entity/                 # 数据实体
+│   │   ├── dto/                    # 数据传输对象
+│   │   ├── mapper/                 # MyBatis-Plus Mapper
+│   │   ├── service/                # 业务逻辑层
+│   │   ├── controller/             # REST 控制器
+│   │   ├── auth/                   # 认证模块
+│   │   ├── config/                 # 配置类
+│   │   └── exception/              # 异常类
+│   └── src/test/                   # 后端测试 (56 用例)
+├── frontend/                       # Vue 3 前端
+│   ├── src/
+│   │   ├── api/                    # HTTP API 封装
+│   │   ├── router/                 # 路由配置
+│   │   ├── components/             # 公共组件
+│   │   ├── views/                  # 页面视图
+│   │   └── styles/                 # 全局样式
+│   └── tests/                      # 前端测试 (34 用例)
+├── e2e/                            # Playwright E2E 测试 (3 spec)
+├── docs/                           # 技术文档
+│   ├── API文档.md                  # 8 端点完整 API 文档
+│   ├── ER图.md                     # 数据模型 ER 图
+│   └── prompt.md                   # Vibe Coding 起始 Prompt
+├── docForTasks/                    # 任务规格
+│   ├── prompt.md                   # 主 Agent Prompt
+│   └── tasks/                      # 各模块任务清单 (17 个)
+├── doc/                            # 项目跟踪
+│   └── tasks/progress.md           # 模块进度跟踪表
+├── 需求文档/                        # 需求阶段产出
+│   ├── 01-需求规格说明书.md          # 功能需求规格
+│   ├── 02-Skill与MCP推荐清单.md      # Skills / MCP 推荐
+│   └── detailed-design.md           # 详细设计文档
+├── 核心Prompt记录文档.md            # Prompt 工程记录
+└── Prompt构建过程.md                # 构建流程回顾
 ```
+
+## 文档索引
+
+| 文档 | 说明 |
+|------|------|
+| [docs/API文档.md](docs/API文档.md) | 8 端点完整 API 文档（请求/响应/错误码/枚举） |
+| [docs/ER图.md](docs/ER图.md) | 数据模型设计（Mermaid） |
+| [docs/prompt.md](docs/prompt.md) | Vibe Coding 起始 Prompt |
+| [docForTasks/prompt.md](docForTasks/prompt.md) | 主 Agent 调度 Prompt |
+| [docForTasks/tasks/](docForTasks/tasks/) | 各模块子 Agent 任务规格（17 个） |
+| [doc/tasks/progress.md](doc/tasks/progress.md) | 模块进度跟踪 |
+| [需求文档/01-需求规格说明书.md](需求文档/01-需求规格说明书.md) | 功能需求规格 |
+| [需求文档/detailed-design.md](需求文档/detailed-design.md) | 详细设计 |
+| [核心Prompt记录文档.md](核心Prompt记录文档.md) | Prompt 工程经验记录 |
+| [Prompt构建过程.md](Prompt构建过程.md) | 5 步对话构建流程回顾 |
 
 ## API 接口
 
