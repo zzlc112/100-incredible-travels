@@ -20,21 +20,20 @@
 
 ### 环境要求
 
-- JDK 17+
-- Maven 3.8+ 或使用 Maven Wrapper
+- JDK 17+（Maven 通过项目内置 Wrapper 自动下载，无需单独安装）
 - Node.js 18+
 
 ### 启动后端
 
-```bash
+```powershell
 cd backend
-mvn spring-boot:run
+.\mvnw.ps1 spring-boot:run
 # 后端运行在 http://localhost:8080
 ```
 
 ### 启动前端
 
-```bash
+```powershell
 cd frontend
 npm install
 npm run dev
@@ -43,15 +42,20 @@ npm run dev
 
 ### 运行测试
 
-```bash
-# 后端单元测试
-cd backend && mvn test
+```powershell
+# 后端单元测试 (56 用例)
+cd backend
+.\mvnw.ps1 test
 
-# 前端单元测试
-cd frontend && npm test
+# 前端单元测试 (34 用例)
+cd frontend
+npm test
 
 # E2E 测试
-cd e2e && npm install && npx playwright test
+cd e2e
+npm install
+npx playwright install
+npx playwright test
 ```
 
 ## 后台管理
@@ -86,19 +90,13 @@ cd e2e && npm install && npx playwright test
 ├── e2e/                            # Playwright E2E 测试 (3 spec)
 ├── docs/                           # 技术文档
 │   ├── API文档.md                  # 8 端点完整 API 文档
-│   ├── ER图.md                     # 数据模型 ER 图
-│   └── prompt.md                   # Vibe Coding 起始 Prompt
-├── docForTasks/                    # 任务规格
-│   ├── prompt.md                   # 主 Agent Prompt
-│   └── tasks/                      # 各模块任务清单 (17 个)
-├── doc/                            # 项目跟踪
-│   └── tasks/progress.md           # 模块进度跟踪表
-├── 需求文档/                        # 需求阶段产出
-│   ├── 01-需求规格说明书.md          # 功能需求规格
-│   ├── 02-Skill与MCP推荐清单.md      # Skills / MCP 推荐
-│   └── detailed-design.md           # 详细设计文档
-├── 核心Prompt记录文档.md            # Prompt 工程记录
-└── Prompt构建过程.md                # 构建流程回顾
+│   └── ER图.md                     # 数据模型 ER 图
+└── 构建过程/                        # 构建过程产物（需求→设计→任务→Prompt）
+    ├── 需求文档/                    # 需求规格说明书 + 详细设计
+    ├── 任务划分/                    # 各模块子 Agent 任务清单 (17 个)
+    ├── 进度跟踪/                    # 模块完成进度表
+    ├── Vibe Coding起始Prompt.md    # 主/子 Agent 调度 Prompt
+    └── 核心Prompt记录文档.md        # Prompt 工程经验记录
 ```
 
 ## 文档索引
@@ -107,14 +105,11 @@ cd e2e && npm install && npx playwright test
 |------|------|
 | [docs/API文档.md](docs/API文档.md) | 8 端点完整 API 文档（请求/响应/错误码/枚举） |
 | [docs/ER图.md](docs/ER图.md) | 数据模型设计（Mermaid） |
-| [docs/prompt.md](docs/prompt.md) | Vibe Coding 起始 Prompt |
-| [docForTasks/prompt.md](docForTasks/prompt.md) | 主 Agent 调度 Prompt |
-| [docForTasks/tasks/](docForTasks/tasks/) | 各模块子 Agent 任务规格（17 个） |
-| [doc/tasks/progress.md](doc/tasks/progress.md) | 模块进度跟踪 |
-| [需求文档/01-需求规格说明书.md](需求文档/01-需求规格说明书.md) | 功能需求规格 |
-| [需求文档/detailed-design.md](需求文档/detailed-design.md) | 详细设计 |
-| [核心Prompt记录文档.md](核心Prompt记录文档.md) | Prompt 工程经验记录 |
-| [Prompt构建过程.md](Prompt构建过程.md) | 5 步对话构建流程回顾 |
+
+构建过程文档（需求→设计→任务→Prompt）见 [构建过程/](构建过程/)，核心：
+- [5个对话我所使用的Prompt.md](构建过程/5个对话我所使用的Prompt.md) — 我与 AI 的 5 个对话 Prompt 原稿
+- [核心Prompt记录文档.md](构建过程/核心Prompt记录文档.md) — 6 段原始 Prompt，按 SDD/DDD/TDD/E2E 阶段标注
+- [开发过程思路与工作流说明.md](构建过程/开发过程思路与工作流说明.md) — 开发流程 + 3 个典型问题 + 工程化 AI 思考
 
 ## API 接口
 
